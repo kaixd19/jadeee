@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>secret mwhehe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+            /* Initially hidden */
+        }
+
+        h1 {
+            color: #4a90e2;
+            text-align: left;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #357ab7;
+        }
+
+        .active {
+            display: block;
+            /* Show active containers */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            width: 45%;
+            /* Set width of buttons to be equal and fit on left and right */
+        }
+
+        .calculator-container {
+            display: none;
+            text-align: center;
+        }
+
+        .calculator {
+            margin-top: 20px;
+        }
+
+        .calculator input[type="text"] {
+            font-size: 20px;
+            padding: 10px;
+            width: 50px;
+            text-align: center;
+        }
+
+        .confession {
+            display: none;
+        }
+
+        .confession p {
+            font-size: 18px;
+            text-align: left;
+        }
+
+        .intro-container {
+            /* New container for the introductory message */
+            display: block;
+        }
+
+        .intro-container h1 {
+            font-size: 32px;
+        }
+
+        .intro-container p {
+            font-size: 22px;
+            margin-top: 20px;
+        }
+
+        .promise-container {
+            /* Container for the promise message */
+            display: none;
+        }
+
+        .promise-container h1 {
+            font-size: 32px;
+        }
+        .promise-container p {
+            font-size: 22px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- New introductory page -->
+    <div class="container active" id="intro-container">
+        <h1> Hello, Jade! I know you’re wondering what is this.</h1>
+        <p>Click the button.</p>
+        <button id="continue-button">Click this</button>
+    </div>
+
+    <!-- Promise page -->
+    <div class="container" id="promise-container">
+        <h1>Promise me that things won’t change between us.</h1>
+        <p>I hope you won’t get uncomfortable after this:)</p>
+        <button id="promise-button">I promise</button>
+    </div>
+
+    <!-- Initial question -->
+    <div class="container" id="question-container">
+        <h1>Do you want to know what is this?</h1>
+        <button id="yes-button">Yes</button>
+        <button id="no-button">No</button>
+
+        <div class="button-container">
+            <button id="fb-button">This girl is so pretty!</button>
+            <button id="yt-button">Listen to this song.</button>
+        </div>
+    </div>
+
+    <!-- Yes message -->
+    <div class="container" id="yes-message">
+        <h1>Hello, Jade!</h1>
+        <div class="calculator-container" id="calculator-container">
+            <p>Solve this: <strong>8 + 2 - 8</strong></p>
+            <input type="text" id="calculator-answer" placeholder="Answer">
+            <button id="submit-answer">Submit</button>
+        </div>
+
+        <div class="confession" id="confession-message">
+            <h1>It’s a confession message, I hope we can still stay friends after you read this:)</h1>
+            <p>hello, Jade! Before I continue this, I hope you won’t get uncomfortable or avoid me, and I also hope that no matter what happens, we can still stay friends after this. It feels like something is pushing me to tell you this. I know it might sound weird, but I like you, Jade. I know you might think na trippings lang ako, that I’m just infatuated or something, but I’m not. I wouldn’t fake my feelings for someone. Honestly, I don’t even know when it started—bigla ko nalang na-feel na I already like you. It wasn’t something I planned, but it just happened. Don’t worry, you don’t have to say anything; I just wanted to share how I feel.
+                <br><br>
+
+            I admire you because you’re good at academics, kind, pretty, and you’re definitely a standard. I may not have known you for a long time, pero kahit saglit pa lang tayo nagkasama, I already feel so comfortable with you. Especially when we talk and share stories, I feel like I can really be myself without any fear of being judged. Thank you, that means a lot to me.
+                <br><br>
+
+            I know this might come as a surprise, but I just wanted to be honest and let you know how I feel. Whatever your response is, okay lang, I just felt like this was something I needed to say. I hope that things won’t change between us, and we can still have that same friendship we’ve started. : ) I apologize kasi I’m not really good at expressing stuff like this. 😭😭</p>
+        </div>
+
+        <button id="back-yes">Back</button>
+    </div>
+
+    <!-- No message -->
+    <div class="container" id="no-message">
+        <h1>You can’t say no</h1>
+        <p>just click yes hehe</p>
+        <button id="back-no">Back</button>
+    </div>
+
+    <script>
+        // When "Click This" is clicked (Intro Page)
+        document.getElementById('continue-button').addEventListener('click', function () {
+            document.getElementById('intro-container').classList.remove('active');
+            document.getElementById('promise-container').classList.add('active'); // Show promise page
+        });
+
+        // When "I Promise" is clicked (Promise Page)
+        document.getElementById('promise-button').addEventListener('click', function () {
+            document.getElementById('promise-container').classList.remove('active');
+            document.getElementById('question-container').classList.add('active'); // Proceed to question page
+        });
+
+        // When "Yes" is clicked
+        document.getElementById('yes-button').addEventListener('click', function () {
+            document.getElementById('question-container').classList.remove('active');
+            document.getElementById('yes-message').classList.add('active');
+            document.getElementById('calculator-container').style.display = 'block'; // Show calculator
+        });
+
+        // When "No" is clicked
+        document.getElementById('no-button').addEventListener('click', function () {
+            document.getElementById('question-container').classList.remove('active');
+            document.getElementById('no-message').classList.add('active');
+        });
+
+        // When "Back" on Yes message is clicked
+        document.getElementById('back-yes').addEventListener('click', function () {
+            document.getElementById('yes-message').classList.remove('active');
+            document.getElementById('question-container').classList.add('active');
+        });
+
+        // When "Back" on No message is clicked
+        document.getElementById('back-no').addEventListener('click', function () {
+            document.getElementById('no-message').classList.remove('active');
+            document.getElementById('question-container').classList.add('active');
+        });
+
+        // Go to Facebook with the updated link
+        document.getElementById('fb-button').addEventListener('click', function () {
+            window.location.href = "https://www.facebook.com/jade.vireynato.73?mibextid=ZbWKwL"; // Facebook link
+        });
+
+        // Go to YouTube with the updated link
+        document.getElementById('yt-button').addEventListener('click', function () {
+            window.location.href = "https://youtu.be/KTsuBfEw8Zo?si=6iNV7htz6gTy7he8"; // YouTube link
+        });
+
+        // When user submits the answer to the calculator
+        document.getElementById('submit-answer').addEventListener('click', function () {
+            var answer = document.getElementById('calculator-answer').value;
+            if (answer == '2') { // Correct answer for 8 + 2 - 8 
+                document.getElementById('calculator-container').style.display = 'none'; // Hide calculator
+                document.getElementById('confession-message').style.display = 'block'; // Show confession
+            } else {
+                alert('ano ba ’yan, hindi marunong mag bilang, kidding hehe');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
